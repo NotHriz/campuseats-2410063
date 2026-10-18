@@ -12,3 +12,5 @@ function MenuItemCard({ item }) {
     </article>
   )
 }
+
+export default MenuItemCard
