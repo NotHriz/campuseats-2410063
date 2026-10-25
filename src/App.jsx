@@ -21,6 +21,10 @@ function App() {
 
   const [lastOrder, setLastOrder] = useState(null)
 
+  // feature 3 states
+  const [favourites, setFavourites] = useState([])
+  const [favouritesOnly, setFavouritesOnly] = useState(false)
+
   useEffect(() => {
   const controller = new AbortController()
 
@@ -98,11 +102,24 @@ function App() {
     0
   )
 
-  setLastOrder({ ...details, total })
-  setCart([])
-  setView('done')
-}
-  
+    setLastOrder({ ...details, total })
+    setCart([])
+    setView('done')
+  }
+
+  // Handle favourite
+  // toggle favourite
+  function handleToggleFavourite(itemId) {
+    setFavourites((prev) =>
+      prev.includes(itemId)
+        ? prev.filter((id) => id !== itemId)
+        : [...prev, itemId]
+    )
+  }
+  // Filter visible items based on favouritesOnly if toggled
+  const visibleItems = (selectedVendor?.menu ?? []).filter(
+    (item) => !favouritesOnly || favourites.includes(item.id)
+  )
   let content
   if (view === 'cart') {
     content = (
@@ -146,7 +163,20 @@ function App() {
             </div>
           <section>
             <h2 className="section-title">Menu: {selectedVendor.name}</h2>
-            <MenuList items={selectedVendor.menu} onAdd={handleAddToCart} />
+            <label>
+              <input
+                type="checkbox"
+                checked={favouritesOnly}
+                onChange={(event) => setFavouritesOnly(event.target.checked)}
+              />
+              Favourites only
+            </label>
+            <MenuList
+              items={visibleItems}
+              onAdd={handleAddToCart}
+              favourites={favourites}
+              onToggleFavourite={handleToggleFavourite}
+            />
           </section>
         </main>
         <Footer />

@@ -36,3 +36,13 @@
 - One thing the AI got wrong and how I fixed it: It initially suggested
   removing the loading/error branches. After checking the lab sheet,
   I kept them because B2 requires them.
+
+- Tool(s): ChatGPT Codex
+- What I asked for:  Help implement Favourtie feature
+- What I kept, changed or rejected, and why: 
+- One thing the AI got wrong and how I fixed it:   Mismatch state names; some uses plural while some uses singular ; handlToggleFavourite accidently put inside handlePlaceOrder ; favourite button dont work, 
+
+- Tool(s): ChatGPT Codex
+- What I asked for:  Update each menu item card to include `isFavourite`
+- What I kept, changed or rejected, and why: 
+- One thing the AI got wrong and how I fixed it:    
