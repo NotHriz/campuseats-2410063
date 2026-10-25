@@ -26,43 +26,42 @@ function App() {
   const [favouritesOnly, setFavouritesOnly] = useState(false)
 
   useEffect(() => {
-  const controller = new AbortController()
+    const controller = new AbortController()
 
-  async function loadVendors() {
-    setLoading(true)
-    setError(null)
+    async function loadVendors() {
+      setLoading(true)
+      setError(null)
 
-    try {
-      const response = await fetch('/api/vendors.json', {
-        signal: controller.signal,
-      })
+      try {
+        const response = await fetch('/api/vendors.json', {
+          signal: controller.signal,
+        })
 
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`)
-      }
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`)
+        }
 
-      const data = await response.json()
+        const data = await response.json()
 
-      if (!controller.signal.aborted) {
-        setVendors(data)
-        setSelectedVendorId(data[0]?.id ?? null)
-      }
-    } catch (err) {
-      if (!controller.signal.aborted) {
-        setError(err.message)
-      }
-    } finally {
-      if (!controller.signal.aborted) {
-        setLoading(false)
+        if (!controller.signal.aborted) {
+          setVendors(data)
+          setSelectedVendorId(data[0]?.id ?? null)
+        }
+      } catch (err) {
+        if (!controller.signal.aborted) {
+          setError(err.message)
+        }
+      } finally {
+        if (!controller.signal.aborted) {
+          setLoading(false)
+        }
       }
     }
-  }
 
-  loadVendors()
+    loadVendors()
 
-  return () => controller.abort()
-}, [reloadKey])
-
+    return () => controller.abort()
+  }, [reloadKey])
 
   function handleAddToCart(item) {
     setCart((prevCart) => {
@@ -88,8 +87,7 @@ function App() {
         }
         return line
       }).filter(Boolean) // remove nulls
-    }
-  )
+    })
   }
 
   function handleRemove(itemId) {
@@ -97,10 +95,10 @@ function App() {
   }
 
   function handlePlaceOrder(details) {
-  const total = cart.reduce(
-    (sum, line) => sum + line.item.price * line.qty,
-    0
-  )
+    const total = cart.reduce(
+      (sum, line) => sum + line.item.price * line.qty,
+      0
+    )
 
     setLastOrder({ ...details, total })
     setCart([])
@@ -123,8 +121,12 @@ function App() {
   let content
   if (view === 'cart') {
     content = (
-      <CartPage cart={cart} onChangeQty={handleChangeQty}
-                onRemove={handleRemove} onPlaceOrder={handlePlaceOrder} />
+      <CartPage
+        cart={cart}
+        onChangeQty={handleChangeQty}
+        onRemove={handleRemove}
+        onPlaceOrder={handlePlaceOrder}
+      />
     )
   } else if (view === 'done') {
     content = (
@@ -149,48 +151,49 @@ function App() {
   } else {
     content = (
       <>
-        <main className="container">
-            <h2 className="section-title">Choose a vendor</h2>
-            <div className="vendor-grid">
-              {vendors.map((vendor) => (
-                <VendorCard
-                  key={vendor.id}
-                  vendor={vendor}
-                  isSelected={vendor.id === selectedVendorId}
-                  onSelect={setSelectedVendorId}
-                />
-              ))}
-            </div>
-          <section>
-            <h2 className="section-title">Menu: {selectedVendor.name}</h2>
-            <label>
-              <input
-                type="checkbox"
-                checked={favouritesOnly}
-                onChange={(event) => setFavouritesOnly(event.target.checked)}
-              />
-              Favourites only
-            </label>
-            <MenuList
-              items={visibleItems}
-              onAdd={handleAddToCart}
-              favourites={favourites}
-              onToggleFavourite={handleToggleFavourite}
+        <h2 className="section-title">Choose a vendor</h2>
+        <div className="vendor-grid">
+          {vendors.map((vendor) => (
+            <VendorCard
+              key={vendor.id}
+              vendor={vendor}
+              isSelected={vendor.id === selectedVendorId}
+              onSelect={setSelectedVendorId}
             />
-          </section>
-        </main>
-        <Footer />
+          ))}
+        </div>
+        <section>
+          <h2 className="section-title">Menu: {selectedVendor.name}</h2>
+          <label>
+            <input
+              type="checkbox"
+              checked={favouritesOnly}
+              onChange={(event) => setFavouritesOnly(event.target.checked)}
+            />
+            Favourites only
+          </label>
+          <MenuList
+            items={visibleItems}
+            onAdd={handleAddToCart}
+            favourites={favourites}
+            onToggleFavourite={handleToggleFavourite}
+          />
+        </section>
       </>
-  )
-} 
-return (
+    )
+  }
+
+  return (
     <>
-      <Header cartCount={cartCount}
-              onShowMenu={() => setView('menu')} onShowCart={() => setView('cart')} />
+      <Header
+        cartCount={cartCount}
+        onShowMenu={() => setView('menu')}
+        onShowCart={() => setView('cart')}
+      />
       <main className="container">{content}</main>
       <Footer />
     </>
   )
 }
- 
+
 export default App
