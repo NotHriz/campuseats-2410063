@@ -9,6 +9,7 @@
       {
         "id": "2410063-m1",
         "name": "Bubur Ayam Crispy",
+        "description": "Rice porridge topped with crispy chicken.",
         "price": 7.5,
         "category": "Porridge",
         "popular": true,
@@ -17,6 +18,7 @@
       {
         "id": "2410063-m2",
         "name": "Bubur Dagiing Bakar",
+        "description": "Rice porridge served with grilled beef.",
         "price": 8,
         "category": "Porridge",
         "popular": true,
@@ -25,6 +27,7 @@
       {
         "id": "2410063-m3",
         "name": "Bubur Ikan Tempura",
+        "description": "Rice porridge topped with tempura fish.",
         "price": 8,
         "category": "Porridge",
         "popular": false,
@@ -33,6 +36,7 @@
       {
         "id": "2410063-m4",
         "name": "Bubur Cendawan Enoki Crispy",
+        "description": "Rice porridge topped with crispy enoki mushrooms.",
         "price": 8,
         "category": "Porridge",
         "popular": false,
@@ -41,6 +45,7 @@
       {
         "id": "2410063-m5",
         "name": "Bubur Ayam Bakar",
+        "description": "Rice porridge served with grilled chicken.",
         "price": 7.5,
         "category": "Porridge",
         "popular": true,
@@ -49,6 +54,7 @@
       {
         "id": "2410063-m6",
         "name": "Bubur Sotong Crispy",
+        "description": "Rice porridge topped with crispy squid.",
         "price": 8,
         "category": "Porridge",
         "popular": false,
@@ -57,6 +63,7 @@
       {
         "id": "2410063-m7",
         "name": "Bubur Lemak Bakar",
+        "description": "A rich, savoury porridge in the Bubur Bakar style.",
         "price": 8,
         "category": "Porridge",
         "popular": false,
@@ -65,6 +72,7 @@
       {
         "id": "2410063-m8",
         "name": "Bubur Seafood Bakar",
+        "description": "Rice porridge served with grilled seafood.",
         "price": 13,
         "category": "Porridge",
         "popular": false,
@@ -73,6 +81,7 @@
       {
         "id": "2410063-m9",
         "name": "Bubur Smoked Duck",
+        "description": "Rice porridge topped with smoked duck.",
         "price": 13,
         "category": "Porridge",
         "popular": false,
@@ -81,6 +90,7 @@
       {
         "id": "2410063-m10",
         "name": "Mantau (Ayam Butter)",
+        "description": "Mantau buns served with butter chicken.",
         "price": 6,
         "category": "Sides",
         "popular": false,
@@ -89,6 +99,7 @@
       {
         "id": "2410063-m11",
         "name": "Sizzling Daging",
+        "description": "Beef served on a sizzling hot plate.",
         "price": 10,
         "category": "Sizzling",
         "popular": false,
@@ -97,6 +108,7 @@
       {
         "id": "2410063-m12",
         "name": "Sizzling Ayam",
+        "description": "Chicken served on a sizzling hot plate.",
         "price": 9,
         "category": "Sizzling",
         "popular": false,
