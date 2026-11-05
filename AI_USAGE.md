@@ -61,3 +61,10 @@
 - What I asked for: Compare my work with the lab PDF, check GitHub submission status, tidy App.jsx formatting, and fill in this AI usage log from the conversation.
 - What I kept, changed or rejected, and why: Used the remaining-work checklist. The AI checked pushed commits and the week-3 tag, ran build/lint checks, and directly formatted App.jsx. It also drafted this Week 3 log from our conversation.
 - One thing the AI got wrong and how I fixed it: Passing build/lint did not prove every browser interaction worked; manual checks of retry, cart updates, validation, confirmation, and favourites are still needed.
+
+## Week 4
+
+- Tool(s): ChatGPT Codex
+- What I asked for: Step-by-step guidance through the Week 4 lab using the lab sheet and infographic, reviews of my edits, help with the OrdersPage import error, and the final commits and week-4 tag.
+- What I kept, changed or rejected, and why: Used the examples for useLocalStorage, useVendors, useCart, CartProvider, persistent cart and orders, Layout with Outlet, and the five main routes. Replaced screen-switching callbacks with Link, NavLink, useParams, and useNavigate. Moved favourites into the cart context, persisted their IDs, and added the /favourites page. Corrected the OrdersPage filename, stale variable names, and duplicate provider after review. I typed the implementation; Codex reviewed the source and ran build/lint checks, then added this log and prepared the commits and tag.
+- One thing the AI got wrong and how I fixed it: No specific incorrect code suggestion was identified. Build and lint passed while some routing edits were still missing; the source review identified the old vendor/header buttons and duplicate provider, which I corrected. Passing those checks does not verify browser interactions; the manual lab checks still need to be confirmed.

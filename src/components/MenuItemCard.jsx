@@ -1,4 +1,4 @@
-function MenuItemCard({ item,onAdd, isFavourite, onToggleFavourite }) {
+function MenuItemCard({ item, onAdd, isFavourite, onToggleFavourite }) {
   return (
     <article className="card menu-card">
       <div className="thumb" aria-hidden="true">{item.name.charAt(0)}</div>
