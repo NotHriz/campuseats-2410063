@@ -6,6 +6,7 @@ import VendorPage from './pages/VendorPage.jsx'
 import CartPage from './pages/CartPage.jsx'
 import OrdersPage from './pages/OrdersPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
+import FavouritesPage from './pages/FavouritesPage.jsx'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="vendor/:id" element={<VendorPage />} />
             <Route path="cart" element={<CartPage />} />
             <Route path="orders" element={<OrdersPage />} />
+            <Route path="favourites" element={<FavouritesPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>

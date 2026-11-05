@@ -8,6 +8,7 @@ function Header() {
     <header className="header">
       <h1 className="logo">CampusEats</h1>
       <nav className="nav">
+        <NavLink to="/favourites">Favourites</NavLink>
         <NavLink to="/" end>Vendors</NavLink>
         <NavLink to="/orders">My Orders</NavLink>
         <NavLink to="/cart" className="cart">
